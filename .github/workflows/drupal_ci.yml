@@ -21,5 +21,4 @@ jobs:
 
       - name: Lint Modified YAML Files
         run: |
-          git diff --name-only ${{ github.sha }} ${{ github.event.before }} \
-          | grep '\.yml$' | xargs yamllint
+          git diff --name-only ${{ github.sha }} ${{ github.event.before }} | grep '\.yml$' | xargs yamllint
