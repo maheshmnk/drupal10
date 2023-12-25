@@ -21,4 +21,11 @@ jobs:
 
       - name: Lint Modified YAML Files
         run: |
-          git diff --name-only ${{ github.sha }} ${{ github.event.before }} | grep '\.yml$' | xargs yamllint
+          FILES=$(git diff --name-only ${{ github.sha }} ${{ github.event.before }} | grep '\.yml$')
+          if [ -n "$FILES" ]; then
+            echo "Linting: $FILES"
+            echo "$FILES" | xargs yamllint
+          else
+            echo "No YAML files to lint"
+          fi
+
