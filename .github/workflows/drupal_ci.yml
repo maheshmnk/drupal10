@@ -25,7 +25,7 @@ jobs:
           if [ -n "$FILES" ]; then
             echo "Linting: $FILES"
             echo "$FILES" | xargs yamllint
+            yamllint $FILES || true
           else
             echo "No YAML files to lint"
           fi
-
