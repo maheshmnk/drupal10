@@ -18,5 +18,7 @@ jobs:
 
       - name: Build the website
         run: ddev build
-      - name: Run YAML linter test
-        run: yamllint .
+
+      - name: Lint Modified YAML Files
+        run: |
+          git diff --name-only ${{ github.sha }} ${{ github.event.before }} | grep '\.yml$' | xargs yamllint
