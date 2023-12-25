@@ -8,4 +8,5 @@ composer install --prefer-dist
 
 # Install Drupal from an installation profile.
 drush site:install --account-user=admin --account-pass=admin --existing-config --yes
+chmod +x /var/www/html/vendor/bin/drush
 drush cr
