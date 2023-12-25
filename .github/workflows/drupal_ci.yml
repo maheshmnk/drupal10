@@ -1,24 +1,21 @@
 name: CI for Drupal
 
-on: 
+on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Clone the code
-      uses: actions/checkout@v1
-    - name: Install DDEV
-      uses: ddev/github-action-setup-ddev@v1
-    - name: Build the website
-      run: ddev build
-    - name: Run YAML linter
-      run: yamllint . 
-    
-    
-    
+      - name: Clone the code
+        uses: actions/checkout@v1
+      - name: Install DDEV
+        uses: ddev/github-action-setup-ddev@v1
+      - name: Build the website
+        run: ddev build
+      - name: Run YAML linter test
+        run: yamllint .
