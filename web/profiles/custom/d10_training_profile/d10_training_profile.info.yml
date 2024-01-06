@@ -1,0 +1,8 @@
+name: d10-training Profile
+type: profile
+description: 'Base profile for d10-training project.'
+core_version_requirement: ^10
+distribution:
+  name: d10-training Profile
+dependencies:
+  - admin_toolbar
